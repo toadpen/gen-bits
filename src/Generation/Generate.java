@@ -5,23 +5,37 @@ import java.util.Random;
 
 public class Generate {
 
-    // Generate an array of numbers
-    public String generateNums(int length)
+    // Generate a 1D array
+    public String generate1D(int length, int range)
     {
         Random random = new Random();
+        String strNum;
         int[] genNums = new int[length];
-        for(int i = 0; i < length; i++)
+        for(int l = 0; l < length; l++)
         {
-            int num = random.nextInt(2);
-            genNums[i] = num;
+            int num = random.nextInt(range);
+            genNums[l] = num;
         }
-        String strNum = Arrays.toString(genNums);
+        strNum = Arrays.toString(genNums);
         strNum = strNum.replaceAll(",", "");
         strNum = strNum.replaceAll("\\]", "");
         strNum = strNum.replaceAll("\\[", "");
         strNum = strNum.replaceAll(" ", "");
 
+
         return strNum;
+    }
+    // Generate a 2D array
+    public String generate2D(int length, int height, int range)
+    {
+        String generatedNum;
+        String finalStr = "";
+        for(int i = 0; i < height; i++)
+        {
+            generatedNum = generate1D(length, range) + "\n";
+            finalStr += generatedNum;
+        }
+        return finalStr;
     }
 
 }
