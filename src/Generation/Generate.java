@@ -5,10 +5,11 @@ import java.util.Random;
 
 public class Generate {
 
+    Random random = new Random();
+    
     // Generate a 1D array
     public String generate1D(int length, int range)
     {
-        Random random = new Random();
         String strNum;
         int[] genNums = new int[length];
         for(int l = 0; l < length; l++)
